@@ -1,0 +1,136 @@
+{
+    "info": {
+        "name": "Library Management API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "_postman_id": "library-management-api-collection"
+    },
+    "item": [
+        {
+            "name": "Books",
+            "item": [
+                {
+                    "name": "Create Book",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": "{{baseUrl}}/books",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n                                \"title\": \"Spring Boot in Action\",\n                                \"isbn\": \"978-1617292545\",\n                                \"author\": { \"id\": 1 },\n                                \"publishedDate\": \"2022-05-01\"\n                            }"
+                        }
+                    }
+                },
+                {
+                    "name": "Get Book by ID",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{baseUrl}}/books/1"
+                    }
+                },
+                {
+                    "name": "Update Book",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": "{{baseUrl}}/books/1",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n                                \"title\": \"Updated Book Title\",\n                                \"isbn\": \"978-1617292545\",\n                                \"author\": { \"id\": 1 },\n                                \"publishedDate\": \"2023-06-15\"\n                            }"
+                        }
+                    }
+                },
+                {
+                    "name": "Delete Book",
+                    "request": {
+                        "method": "DELETE",
+                        "url": "{{baseUrl}}/books/1"
+                    }
+                },
+                {
+                    "name": "List All Books",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{baseUrl}}/books?page=0&size=5"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Authors",
+            "item": [
+                {
+                    "name": "Create Author",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": "{{baseUrl}}/authors",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n                                \"name\": \"John Doe\",\n                                \"bio\": \"Famous Java Developer\"\n                            }"
+                        }
+                    }
+                },
+                {
+                    "name": "Get Author by ID",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{baseUrl}}/authors/1"
+                    }
+                },
+                {
+                    "name": "Update Author",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": "{{baseUrl}}/authors/1",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n                                \"name\": \"Updated Author Name\",\n                                \"bio\": \"Updated Biography\"\n                            }"
+                        }
+                    }
+                },
+                {
+                    "name": "Delete Author",
+                    "request": {
+                        "method": "DELETE",
+                        "url": "{{baseUrl}}/authors/1"
+                    }
+                },
+                {
+                    "name": "List All Authors",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{baseUrl}}/authors?page=0&size=5"
+                    }
+                }
+            ]
+        }
+    ],
+    "variable": [
+        {
+            "key": "baseUrl",
+            "value": "http://localhost:8080",
+            "type": "string"
+        }
+    ]
+}
