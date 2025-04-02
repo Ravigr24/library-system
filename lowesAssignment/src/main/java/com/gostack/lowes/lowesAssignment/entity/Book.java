@@ -27,4 +27,16 @@ public class Book {
 
     @NotNull(message = "Published date is required")
     private LocalDate publishedDate;
+
+    public Book(Long id, String title, String isbn, Author author, LocalDate publishedDate) {
+        this.id = id;
+        this.title = title;
+        this.isbn = isbn;
+        this.author = author;
+        this.publishedDate = publishedDate;
+    }
+
+    public Book() {
+
+    }
 }

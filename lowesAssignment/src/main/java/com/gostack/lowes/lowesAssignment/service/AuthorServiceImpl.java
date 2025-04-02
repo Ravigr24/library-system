@@ -22,6 +22,7 @@ import java.util.stream.Collectors;
 public class AuthorServiceImpl implements AuthorService {
     private final AuthorRepository authorRepository;
 
+
     @Autowired
     public AuthorServiceImpl(AuthorRepository authorRepository) {
         this.authorRepository = authorRepository;
@@ -57,9 +58,10 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     public void deleteAuthor(Long id) {
-        Author author = authorRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Author not found with id: " + id));
-        authorRepository.delete(author);
+        if (!authorRepository.existsById(id)) {
+            throw new ResourceNotFoundException("Author not found with id: " + id);
+        }
+        authorRepository.deleteById(id);
     }
 
     public Page<AuthorDTO> searchAuthors(String name, int page, int size, String sort) {
